@@ -13,6 +13,13 @@ class CustomerController extends Controller
     public function index()
     {
         //
+        $customers = Customer::latest()->paginate(5);
+
+        return response([
+            'success' => true,
+            'message' => 'List data customer',
+            'data' => $customers,
+        ]);
     }
 
     /**
