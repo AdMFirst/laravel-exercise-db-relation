@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CustomerController extends Controller
 {
@@ -25,9 +26,27 @@ class CustomerController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(),
+            [
+                'name' => 'required|string',
+                'address' => 'required|string'
+            ]    
+        );
+
+        if ($validator->fails()) {
+            return response([
+                'success' => true,
+                'message' => 'Validation error!',
+                'data' => $validator->errors(),
+            ], 422);
+        }
+
+        $customer = Customer::create([
+            'name' => $request->name,
+            'address' => $request->address
+        ]);
     }
 
     /**
