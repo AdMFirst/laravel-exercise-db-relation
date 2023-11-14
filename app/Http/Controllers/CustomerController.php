@@ -28,6 +28,14 @@ class CustomerController extends Controller
      */
     public function create(Request $request)
     {
+        // why would this even exist?
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
         $validator = Validator::make($request->all(),
             [
                 'name' => 'required|string',
@@ -37,7 +45,7 @@ class CustomerController extends Controller
 
         if ($validator->fails()) {
             return response([
-                'success' => true,
+                'success' => false,
                 'message' => 'Validation error!',
                 'data' => $validator->errors(),
             ], 422);
@@ -47,14 +55,12 @@ class CustomerController extends Controller
             'name' => $request->name,
             'address' => $request->address
         ]);
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+        return response([
+            'success' => true,
+            'message' => 'Data customer baru berhasil ditambah',
+            'data' => $customer,
+        ]);
     }
 
     /**
