@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,5 +23,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group([
     'prefix' => 'v1'
 ], function ($router) {
-    Route::apiResource('customer', CustomerController::class);
+    Route::middleware('auth:sanctum')->group(function($router) {
+        Route::apiResource('customer', CustomerController::class);
+    });
+
+    Route::post('/login', [UserController::class, 'login']) -> name('login');
+    Route::post('/register', [UserController::class, 'register']) -> name('register');
+
 });
