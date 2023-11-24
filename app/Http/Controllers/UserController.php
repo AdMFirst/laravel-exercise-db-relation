@@ -134,7 +134,7 @@ class UserController extends Controller
         ]);
 
         // Generate a token for the registered user
-        $token = $user->createToken('authToken')->plainTextToken;
+        $token = $user->createToken('authToken', ['*'], now()->addDays(5))->plainTextToken;
 
         // Return a JSON response with the token
         return response()->json([
