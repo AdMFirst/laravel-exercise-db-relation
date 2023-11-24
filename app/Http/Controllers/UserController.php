@@ -75,7 +75,7 @@ class UserController extends Controller
         // Attempt to authenticate the user
         if (Auth::attempt($credentials)) {
             // Authentication successful
-            $token = $request->user()->createToken('authToken')->plainTextToken;
+            $token = $request->user()->createToken('authToken', ['*'], now()->addDays(5))->plainTextToken;
 
             return response()->json([
                 'success' => true,
@@ -93,6 +93,10 @@ class UserController extends Controller
                 'data' => '',
             ], 401);
         }
+    }
+
+    function register() {
+        
     }
 
 }
