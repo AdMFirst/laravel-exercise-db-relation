@@ -65,7 +65,15 @@ class UserController extends Controller
     {
         //
     }
-
+    
+    /**
+     * A Login function to receive your authorization token
+     * 
+     * @group User Authentication
+     * @unauthenticated
+     * @bodyParam email string required your email used to make account. Example: scribe.bot@example.com
+     * @bodyParam password string required your password used then making the account. Example: password
+     */
     public function login(Request $request)
     {
         // Validate the request data
@@ -107,6 +115,12 @@ class UserController extends Controller
         }
     }
 
+    /**
+     * A Register function to add account to the system
+     * 
+     * @group User Authentication
+     * @unauthenticated
+     */
     public function register(Request $request)
     {
 

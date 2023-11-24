@@ -16,18 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::group([
     'prefix' => 'v1'
 ], function ($router) {
-    Route::middleware('auth:sanctum')->group(function($router) {
-        Route::apiResource('customer', CustomerController::class);
-    });
-
     Route::post('/login', [UserController::class, 'login']) -> name('login');
     Route::post('/register', [UserController::class, 'register']) -> name('register');
 
+    Route::middleware('auth:sanctum')->group(function($router) {
+        Route::apiResource('customer', CustomerController::class);
+    });
 });
