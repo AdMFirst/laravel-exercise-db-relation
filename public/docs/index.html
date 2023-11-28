@@ -66,19 +66,34 @@
                 </li>
                                     <ul id="tocify-subheader-endpoints" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-customer">
-                                <a href="#endpoints-GETapi-v1-customer">Display a listing of the resource.</a>
+                                <a href="#endpoints-GETapi-v1-customer">Display a listing of the customer.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-customer">
-                                <a href="#endpoints-POSTapi-v1-customer">Store a newly created resource in storage.</a>
+                                <a href="#endpoints-POSTapi-v1-customer">Store a newly created customer in storage.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-customer--id-">
-                                <a href="#endpoints-GETapi-v1-customer--id-">Display the specified resource.</a>
+                                <a href="#endpoints-GETapi-v1-customer--id-">Display the specified customer.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-PUTapi-v1-customer--id-">
-                                <a href="#endpoints-PUTapi-v1-customer--id-">Update the specified resource in storage.</a>
+                                <a href="#endpoints-PUTapi-v1-customer--id-">Update the specified customer in storage.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-v1-customer--id-">
-                                <a href="#endpoints-DELETEapi-v1-customer--id-">Remove the specified resource from storage.</a>
+                                <a href="#endpoints-DELETEapi-v1-customer--id-">Remove the specified customer from storage.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-payment">
+                                <a href="#endpoints-GETapi-v1-payment">Display a listing of the payment superclass.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-payment">
+                                <a href="#endpoints-POSTapi-v1-payment">Store a newly created payment superclass in storage.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-payment--id-">
+                                <a href="#endpoints-GETapi-v1-payment--id-">Display the specified payment.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-v1-payment--id-">
+                                <a href="#endpoints-PUTapi-v1-payment--id-">Update the specified payment in storage.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-v1-payment--id-">
+                                <a href="#endpoints-DELETEapi-v1-payment--id-">Remove the specified payment from storage.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -129,7 +144,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 
     
 
-                                <h2 id="endpoints-GETapi-v1-customer">Display a listing of the resource.</h2>
+                                <h2 id="endpoints-GETapi-v1-customer">Display a listing of the customer.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -143,7 +158,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/customer?page=15" \
+    --get "http://localhost/api/v1/customer?page=1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -155,7 +170,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 );
 
 const params = {
-    "page": "15",
+    "page": "1",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -192,22 +207,58 @@ access-control-allow-origin: *
     &quot;success&quot;: true,
     &quot;message&quot;: &quot;List data customer&quot;,
     &quot;data&quot;: {
-        &quot;current_page&quot;: 15,
-        &quot;data&quot;: [],
+        &quot;current_page&quot;: 1,
+        &quot;data&quot;: [
+            {
+                &quot;id&quot;: 16,
+                &quot;name&quot;: &quot;Taylor Schiller&quot;,
+                &quot;address&quot;: &quot;280 Keshawn Mount&quot;,
+                &quot;created_at&quot;: &quot;2023-11-14T08:30:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2023-11-14T08:30:48.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Zelda Gaylord&quot;,
+                &quot;address&quot;: &quot;37473 Mayert Drive\nKobyburgh, KY 36186&quot;,
+                &quot;created_at&quot;: &quot;2023-11-14T08:11:58.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2023-11-14T08:11:58.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Louvenia Willms V&quot;,
+                &quot;address&quot;: &quot;256 Russel Hill\nWest Sarai, TN 87276-2782&quot;,
+                &quot;created_at&quot;: &quot;2023-11-14T08:11:58.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2023-11-14T08:11:58.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 3,
+                &quot;name&quot;: &quot;Vladimir Hoeger IV&quot;,
+                &quot;address&quot;: &quot;4419 Hessel Stream Apt. 391\nLake Clarabellefort, TX 60910&quot;,
+                &quot;created_at&quot;: &quot;2023-11-14T08:11:58.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2023-11-14T08:11:58.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 4,
+                &quot;name&quot;: &quot;Ashton Anderson&quot;,
+                &quot;address&quot;: &quot;505 Tom Extension\nBoehmview, DE 42175&quot;,
+                &quot;created_at&quot;: &quot;2023-11-14T08:11:58.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2023-11-14T08:11:58.000000Z&quot;
+            }
+        ],
         &quot;first_page_url&quot;: &quot;http://localhost/api/v1/customer?page=1&quot;,
-        &quot;from&quot;: null,
+        &quot;from&quot;: 1,
         &quot;last_page&quot;: 4,
         &quot;last_page_url&quot;: &quot;http://localhost/api/v1/customer?page=4&quot;,
         &quot;links&quot;: [
             {
-                &quot;url&quot;: &quot;http://localhost/api/v1/customer?page=14&quot;,
+                &quot;url&quot;: null,
                 &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
                 &quot;active&quot;: false
             },
             {
                 &quot;url&quot;: &quot;http://localhost/api/v1/customer?page=1&quot;,
                 &quot;label&quot;: &quot;1&quot;,
-                &quot;active&quot;: false
+                &quot;active&quot;: true
             },
             {
                 &quot;url&quot;: &quot;http://localhost/api/v1/customer?page=2&quot;,
@@ -225,16 +276,16 @@ access-control-allow-origin: *
                 &quot;active&quot;: false
             },
             {
-                &quot;url&quot;: null,
+                &quot;url&quot;: &quot;http://localhost/api/v1/customer?page=2&quot;,
                 &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
                 &quot;active&quot;: false
             }
         ],
-        &quot;next_page_url&quot;: null,
+        &quot;next_page_url&quot;: &quot;http://localhost/api/v1/customer?page=2&quot;,
         &quot;path&quot;: &quot;http://localhost/api/v1/customer&quot;,
         &quot;per_page&quot;: 5,
-        &quot;prev_page_url&quot;: &quot;http://localhost/api/v1/customer?page=14&quot;,
-        &quot;to&quot;: null,
+        &quot;prev_page_url&quot;: null,
+        &quot;to&quot;: 5,
         &quot;total&quot;: 16
     }
 }</code>
@@ -310,14 +361,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="page"                data-endpoint="GETapi-v1-customer"
-               value="15"
+               value="1"
                data-component="query">
     <br>
-<p>the page number. Default to 1 Example: <code>15</code></p>
+<p>the page number. Default to 1. Example: <code>1</code></p>
             </div>
                 </form>
 
-                    <h2 id="endpoints-POSTapi-v1-customer">Store a newly created resource in storage.</h2>
+                    <h2 id="endpoints-POSTapi-v1-customer">Store a newly created customer in storage.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -336,8 +387,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"necessitatibus\",
-    \"address\": \"est\"
+    \"name\": \"omnis\",
+    \"address\": \"quia\"
 }"
 </code></pre></div>
 
@@ -354,8 +405,8 @@ const headers = {
 };
 
 let body = {
-    "name": "necessitatibus",
-    "address": "est"
+    "name": "omnis",
+    "address": "quia"
 };
 
 fetch(url, {
@@ -370,26 +421,16 @@ fetch(url, {
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-x-ratelimit-limit: 60
-x-ratelimit-remaining: 58
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;success&quot;: true,
-    &quot;message&quot;: &quot;Data customer baru berhasil ditambah&quot;,
+    &quot;message&quot;: &quot;Data payment baru berhasil ditambah&quot;,
     &quot;data&quot;: {
-        &quot;name&quot;: &quot;necessitatibus&quot;,
-        &quot;address&quot;: &quot;est&quot;,
-        &quot;updated_at&quot;: &quot;2023-11-28T07:29:05.000000Z&quot;,
-        &quot;created_at&quot;: &quot;2023-11-28T07:29:05.000000Z&quot;,
-        &quot;id&quot;: 42
+        &quot;amount&quot;: &quot;49999.99&quot;,
+        &quot;updated_at&quot;: &quot;2023-11-28T08:22:42.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2023-11-28T08:22:42.000000Z&quot;,
+        &quot;id&quot;: 4
     }
 }</code>
  </pre>
@@ -464,10 +505,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-v1-customer"
-               value="necessitatibus"
+               value="omnis"
                data-component="body">
     <br>
-<p>Example: <code>necessitatibus</code></p>
+<p>Example: <code>omnis</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -475,14 +516,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="address"                data-endpoint="POSTapi-v1-customer"
-               value="est"
+               value="quia"
                data-component="body">
     <br>
-<p>Example: <code>est</code></p>
+<p>Example: <code>quia</code></p>
         </div>
         </form>
 
-                    <h2 id="endpoints-GETapi-v1-customer--id-">Display the specified resource.</h2>
+                    <h2 id="endpoints-GETapi-v1-customer--id-">Display the specified customer.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -531,7 +572,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 57
+x-ratelimit-remaining: 58
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -625,7 +666,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="endpoints-PUTapi-v1-customer--id-">Update the specified resource in storage.</h2>
+                    <h2 id="endpoints-PUTapi-v1-customer--id-">Update the specified customer in storage.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -644,8 +685,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"sequi\",
-    \"address\": \"ipsum\"
+    \"name\": \"est\",
+    \"address\": \"sit\"
 }"
 </code></pre></div>
 
@@ -662,8 +703,8 @@ const headers = {
 };
 
 let body = {
-    "name": "sequi",
-    "address": "ipsum"
+    "name": "est",
+    "address": "sit"
 };
 
 fetch(url, {
@@ -685,7 +726,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 56
+x-ratelimit-remaining: 57
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -694,10 +735,10 @@ access-control-allow-origin: *
     &quot;message&quot;: &quot;Data customer berhasil diubah&quot;,
     &quot;data&quot;: {
         &quot;id&quot;: 1,
-        &quot;name&quot;: &quot;sequi&quot;,
-        &quot;address&quot;: &quot;ipsum&quot;,
+        &quot;name&quot;: &quot;est&quot;,
+        &quot;address&quot;: &quot;sit&quot;,
         &quot;created_at&quot;: &quot;2023-11-14T08:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2023-11-28T07:29:05.000000Z&quot;
+        &quot;updated_at&quot;: &quot;2023-11-28T08:25:23.000000Z&quot;
     }
 }</code>
  </pre>
@@ -788,10 +829,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="PUTapi-v1-customer--id-"
-               value="sequi"
+               value="est"
                data-component="body">
     <br>
-<p>Example: <code>sequi</code></p>
+<p>the new name that will overwrite the old name Example: <code>est</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -799,14 +840,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="address"                data-endpoint="PUTapi-v1-customer--id-"
-               value="ipsum"
+               value="sit"
                data-component="body">
     <br>
-<p>Example: <code>ipsum</code></p>
+<p>the new address that will overwrite the old address Example: <code>sit</code></p>
         </div>
         </form>
 
-                    <h2 id="endpoints-DELETEapi-v1-customer--id-">Remove the specified resource from storage.</h2>
+                    <h2 id="endpoints-DELETEapi-v1-customer--id-">Remove the specified customer from storage.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -820,7 +861,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/v1/customer/10" \
+    "http://localhost/api/v1/customer/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -828,7 +869,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/customer/10"
+    "http://localhost/api/v1/customer/1"
 );
 
 const headers = {
@@ -855,7 +896,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 55
+x-ratelimit-remaining: 56
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -936,6 +977,766 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-v1-customer--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>id of customer. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-v1-payment">Display a listing of the payment superclass.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-payment">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/v1/payment?page=8" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/payment"
+);
+
+const params = {
+    "page": "8",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-payment">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 55
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [],
+    &quot;links&quot;: {
+        &quot;first&quot;: &quot;http://localhost/api/v1/payment?page=1&quot;,
+        &quot;last&quot;: &quot;http://localhost/api/v1/payment?page=1&quot;,
+        &quot;prev&quot;: &quot;http://localhost/api/v1/payment?page=7&quot;,
+        &quot;next&quot;: null
+    },
+    &quot;meta&quot;: {
+        &quot;current_page&quot;: 8,
+        &quot;from&quot;: null,
+        &quot;last_page&quot;: 1,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/payment?page=7&quot;,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/payment?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;active&quot;: false
+            }
+        ],
+        &quot;path&quot;: &quot;http://localhost/api/v1/payment&quot;,
+        &quot;per_page&quot;: 15,
+        &quot;to&quot;: null,
+        &quot;total&quot;: 0
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-payment" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-payment"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-payment"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-payment" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-payment">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-payment" data-method="GET"
+      data-path="api/v1/payment"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-payment', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/payment</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-payment"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-payment"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-payment"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi-v1-payment"
+               value="8"
+               data-component="query">
+    <br>
+<p>the page number. Default to 1 Example: <code>8</code></p>
+            </div>
+                </form>
+
+                    <h2 id="endpoints-POSTapi-v1-payment">Store a newly created payment superclass in storage.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-payment">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/v1/payment" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"amount\": \"49999.99\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/payment"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "amount": "49999.99"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-payment">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 54
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;success&quot;: true,
+    &quot;message&quot;: &quot;Data payment baru berhasil ditambah&quot;,
+    &quot;data&quot;: {
+        &quot;amount&quot;: &quot;49999.99&quot;,
+        &quot;updated_at&quot;: &quot;2023-11-28T08:25:23.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2023-11-28T08:25:23.000000Z&quot;,
+        &quot;id&quot;: 6
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-payment" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-payment"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-payment"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-payment" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-payment">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-payment" data-method="POST"
+      data-path="api/v1/payment"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-payment', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/payment</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-payment"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-payment"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-payment"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>amount</code></b>&nbsp;&nbsp;
+<small>decimal</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="amount"                data-endpoint="POSTapi-v1-payment"
+               value="49999.99"
+               data-component="body">
+    <br>
+<p>the new amount value that will overwrite the old value. Example: <code>49999.99</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-GETapi-v1-payment--id-">Display the specified payment.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-payment--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/v1/payment/2" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/payment/2"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-payment--id-">
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 53
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;success&quot;: false,
+    &quot;message&quot;: &quot;Record not found.&quot;,
+    &quot;data&quot;: null
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-payment--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-payment--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-payment--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-payment--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-payment--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-payment--id-" data-method="GET"
+      data-path="api/v1/payment/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-payment--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/payment/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-payment--id-"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-payment--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-payment--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETapi-v1-payment--id-"
+               value="2"
+               data-component="url">
+    <br>
+<p>The ID of the payment. Example: <code>2</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-PUTapi-v1-payment--id-">Update the specified payment in storage.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-v1-payment--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/v1/payment/3" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"amount\": \"20000.00\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/payment/3"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "amount": "20000.00"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-v1-payment--id-">
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 52
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;success&quot;: false,
+    &quot;message&quot;: &quot;Record not found.&quot;,
+    &quot;data&quot;: null
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-v1-payment--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-v1-payment--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-v1-payment--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-v1-payment--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-v1-payment--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-v1-payment--id-" data-method="PUT"
+      data-path="api/v1/payment/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-payment--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/v1/payment/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/v1/payment/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-payment--id-"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-v1-payment--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-v1-payment--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="PUTapi-v1-payment--id-"
+               value="3"
+               data-component="url">
+    <br>
+<p>id of the payment. Example: <code>3</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>amount</code></b>&nbsp;&nbsp;
+<small>decimal</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="amount"                data-endpoint="PUTapi-v1-payment--id-"
+               value="20000.00"
+               data-component="body">
+    <br>
+<p>the new amount value that will overwrite the old value. Example: <code>20000.00</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-DELETEapi-v1-payment--id-">Remove the specified payment from storage.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-v1-payment--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/v1/payment/10" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/payment/10"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-v1-payment--id-">
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 51
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;success&quot;: false,
+    &quot;message&quot;: &quot;Record not found.&quot;,
+    &quot;data&quot;: null
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEapi-v1-payment--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-v1-payment--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-v1-payment--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-v1-payment--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-v1-payment--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-v1-payment--id-" data-method="DELETE"
+      data-path="api/v1/payment/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-payment--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/v1/payment/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-payment--id-"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-v1-payment--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-v1-payment--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="DELETEapi-v1-payment--id-"
                value="10"
                data-component="url">
     <br>

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\v1\CustomerResource;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -10,9 +9,9 @@ use Illuminate\Support\Facades\Validator;
 class CustomerController extends Controller
 {
     /**
-     * Display a listing of the resource. 
+     * Display a listing of the customer. 
      * 
-     * @queryParam page integer the page number. Default to 1
+     * @queryParam page integer the page number. Default to 1. Example: 1
      */
     public function index()
     {
@@ -27,7 +26,20 @@ class CustomerController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created customer in storage.
+     * 
+     * @response 200 
+     *   {
+     *       "success": true,
+     *       "message": "Data payment baru berhasil ditambah",
+     *       "data": {
+     *           "amount": "49999.99",
+     *           "updated_at": "2023-11-28T08:22:42.000000Z",
+     *           "created_at": "2023-11-28T08:22:42.000000Z",
+     *           "id": 4
+     *       }
+     *   }
+ 
      */
     public function store(Request $request)
     {
@@ -59,7 +71,7 @@ class CustomerController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified customer.
      * 
      * @urlParam id integer required id of customer. Example: 1
      */
@@ -75,9 +87,11 @@ class CustomerController extends Controller
 
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified customer in storage.
      * 
      * @urlParam id integer required id of customer. Example: 1
+     * @bodyParam name string the new name that will overwrite the old name
+     * @bodyParam address string the new address that will overwrite the old address
      */
     public function update(Request $request, Customer $customer)
     {
@@ -115,9 +129,9 @@ class CustomerController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified customer from storage.
      * 
-     * @urlParam id integer required id of customer. Example: 10
+     * @urlParam id integer required id of customer. Example: 1
      */
     public function destroy(Customer $customer)
     {

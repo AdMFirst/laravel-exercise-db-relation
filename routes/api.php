@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,5 +25,7 @@ Route::group([
 
     Route::middleware('auth:sanctum')->group(function($router) {
         Route::apiResource('customer', CustomerController::class);
+        Route::apiResource('payment', PaymentController::class);
+
     });
 });

@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Exercise API Documentation",
-        "_postman_id": "31d2dafa-6849-4cb6-b3ec-3d7b1a3a2629",
+        "_postman_id": "e8e258a3-0e43-4dbe-b283-d2b65ebe3aa6",
         "description": "This is an API for a REST API in laravel. see the github page form more info",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -20,7 +20,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "Display a listing of the resource.",
+                    "name": "Display a listing of the customer.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -28,12 +28,12 @@
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "15",
-                                    "description": "the page number. Default to 1",
+                                    "value": "1",
+                                    "description": "the page number. Default to 1.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/customer?page=15"
+                            "raw": "{{baseUrl}}\/api\/v1\/customer?page=1"
                         },
                         "method": "GET",
                         "header": [
@@ -74,13 +74,13 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"success\":true,\"message\":\"List data customer\",\"data\":{\"current_page\":15,\"data\":[],\"first_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=1\",\"from\":null,\"last_page\":4,\"last_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=4\",\"links\":[{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=14\",\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=1\",\"label\":\"1\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=2\",\"label\":\"2\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=3\",\"label\":\"3\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=4\",\"label\":\"4\",\"active\":false},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"next_page_url\":null,\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer\",\"per_page\":5,\"prev_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=14\",\"to\":null,\"total\":16}}",
+                            "body": "{\"success\":true,\"message\":\"List data customer\",\"data\":{\"current_page\":1,\"data\":[{\"id\":16,\"name\":\"Taylor Schiller\",\"address\":\"280 Keshawn Mount\",\"created_at\":\"2023-11-14T08:30:48.000000Z\",\"updated_at\":\"2023-11-14T08:30:48.000000Z\"},{\"id\":1,\"name\":\"Zelda Gaylord\",\"address\":\"37473 Mayert Drive\\nKobyburgh, KY 36186\",\"created_at\":\"2023-11-14T08:11:58.000000Z\",\"updated_at\":\"2023-11-14T08:11:58.000000Z\"},{\"id\":2,\"name\":\"Louvenia Willms V\",\"address\":\"256 Russel Hill\\nWest Sarai, TN 87276-2782\",\"created_at\":\"2023-11-14T08:11:58.000000Z\",\"updated_at\":\"2023-11-14T08:11:58.000000Z\"},{\"id\":3,\"name\":\"Vladimir Hoeger IV\",\"address\":\"4419 Hessel Stream Apt. 391\\nLake Clarabellefort, TX 60910\",\"created_at\":\"2023-11-14T08:11:58.000000Z\",\"updated_at\":\"2023-11-14T08:11:58.000000Z\"},{\"id\":4,\"name\":\"Ashton Anderson\",\"address\":\"505 Tom Extension\\nBoehmview, DE 42175\",\"created_at\":\"2023-11-14T08:11:58.000000Z\",\"updated_at\":\"2023-11-14T08:11:58.000000Z\"}],\"first_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=1\",\"from\":1,\"last_page\":4,\"last_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=4\",\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=1\",\"label\":\"1\",\"active\":true},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=2\",\"label\":\"2\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=3\",\"label\":\"3\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=4\",\"label\":\"4\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=2\",\"label\":\"Next &raquo;\",\"active\":false}],\"next_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=2\",\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer\",\"per_page\":5,\"prev_page_url\":null,\"to\":5,\"total\":16}}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "Store a newly created resource in storage.",
+                    "name": "Store a newly created customer in storage.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -101,42 +101,21 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"necessitatibus\",\"address\":\"est\"}"
+                            "raw": "{\"name\":\"omnis\",\"address\":\"quia\"}"
                         },
                         "description": ""
                     },
                     "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "x-ratelimit-limit",
-                                    "value": "60"
-                                },
-                                {
-                                    "key": "x-ratelimit-remaining",
-                                    "value": "58"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
+                            "header": [],
                             "code": 200,
-                            "body": "{\"success\":true,\"message\":\"Data customer baru berhasil ditambah\",\"data\":{\"name\":\"necessitatibus\",\"address\":\"est\",\"updated_at\":\"2023-11-28T07:29:05.000000Z\",\"created_at\":\"2023-11-28T07:29:05.000000Z\",\"id\":42}}",
+                            "body": "{\n      \"success\": true,\n      \"message\": \"Data payment baru berhasil ditambah\",\n      \"data\": {\n          \"amount\": \"49999.99\",\n          \"updated_at\": \"2023-11-28T08:22:42.000000Z\",\n          \"created_at\": \"2023-11-28T08:22:42.000000Z\",\n          \"id\": 4\n      }\n  }",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "Display the specified resource.",
+                    "name": "Display the specified customer.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -183,7 +162,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "57"
+                                    "value": "58"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -197,7 +176,7 @@
                     ]
                 },
                 {
-                    "name": "Update the specified resource in storage.",
+                    "name": "Update the specified customer in storage.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -226,8 +205,69 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"sequi\",\"address\":\"ipsum\"}"
+                            "raw": "{\"name\":\"est\",\"address\":\"sit\"}"
                         },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "57"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\"Data customer berhasil diubah\",\"data\":{\"id\":1,\"name\":\"est\",\"address\":\"sit\",\"created_at\":\"2023-11-14T08:11:58.000000Z\",\"updated_at\":\"2023-11-28T08:25:23.000000Z\"}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Remove the specified customer from storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/customer\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/customer\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "id of customer."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
                         "description": ""
                     },
                     "response": [
@@ -255,19 +295,260 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"success\":true,\"message\":\"Data customer berhasil diubah\",\"data\":{\"id\":1,\"name\":\"sequi\",\"address\":\"ipsum\",\"created_at\":\"2023-11-14T08:11:58.000000Z\",\"updated_at\":\"2023-11-28T07:29:05.000000Z\"}}",
+                            "body": "{\"success\":true,\"message\":\"Data customer berhasil dihapus\",\"data\":null}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "Remove the specified resource from storage.",
+                    "name": "Display a listing of the payment superclass.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/v1\/customer\/:id",
+                            "path": "api\/v1\/payment",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "8",
+                                    "description": "the page number. Default to 1",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/payment?page=8"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "55"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/payment?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/payment?page=1\",\"prev\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/payment?page=7\",\"next\":null},\"meta\":{\"current_page\":8,\"from\":null,\"last_page\":1,\"links\":[{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/payment?page=7\",\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/payment?page=1\",\"label\":\"1\",\"active\":false},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/payment\",\"per_page\":15,\"to\":null,\"total\":0}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Store a newly created payment superclass in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/payment",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/customer\/:id",
+                            "raw": "{{baseUrl}}\/api\/v1\/payment"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"amount\":\"49999.99\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "54"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\"Data payment baru berhasil ditambah\",\"data\":{\"amount\":\"49999.99\",\"updated_at\":\"2023-11-28T08:25:23.000000Z\",\"created_at\":\"2023-11-28T08:25:23.000000Z\",\"id\":6}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display the specified payment.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/payment\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/payment\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "The ID of the payment."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "53"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"success\":false,\"message\":\"Record not found.\",\"data\":null}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update the specified payment in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/payment\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/payment\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "3",
+                                    "description": "id of the payment."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"amount\":\"20000.00\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "52"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"success\":false,\"message\":\"Record not found.\",\"data\":null}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Remove the specified payment from storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/payment\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/payment\/:id",
                             "variable": [
                                 {
                                     "id": "id",
@@ -308,15 +589,15 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "55"
+                                    "value": "51"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
                                     "value": "*"
                                 }
                             ],
-                            "code": 200,
-                            "body": "{\"success\":true,\"message\":\"Data customer berhasil dihapus\",\"data\":null}",
+                            "code": 404,
+                            "body": "{\"success\":false,\"message\":\"Record not found.\",\"data\":null}",
                             "name": ""
                         }
                     ]
