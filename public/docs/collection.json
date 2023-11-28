@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Exercise API Documentation",
-        "_postman_id": "ea030f6b-7d65-4e11-b3bb-80ab10b25413",
+        "_postman_id": "31d2dafa-6849-4cb6-b3ec-3d7b1a3a2629",
         "description": "This is an API for a REST API in laravel. see the github page form more info",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -28,12 +28,12 @@
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "16",
+                                    "value": "15",
                                     "description": "the page number. Default to 1",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/customer?page=16"
+                            "raw": "{{baseUrl}}\/api\/v1\/customer?page=15"
                         },
                         "method": "GET",
                         "header": [
@@ -66,7 +66,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "52"
+                                    "value": "59"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -74,7 +74,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"success\":true,\"message\":\"List data customer\",\"data\":{\"current_page\":16,\"data\":[],\"first_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=1\",\"from\":null,\"last_page\":4,\"last_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=4\",\"links\":[{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=15\",\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=1\",\"label\":\"1\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=2\",\"label\":\"2\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=3\",\"label\":\"3\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=4\",\"label\":\"4\",\"active\":false},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"next_page_url\":null,\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer\",\"per_page\":5,\"prev_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=15\",\"to\":null,\"total\":16}}",
+                            "body": "{\"success\":true,\"message\":\"List data customer\",\"data\":{\"current_page\":15,\"data\":[],\"first_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=1\",\"from\":null,\"last_page\":4,\"last_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=4\",\"links\":[{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=14\",\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=1\",\"label\":\"1\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=2\",\"label\":\"2\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=3\",\"label\":\"3\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=4\",\"label\":\"4\",\"active\":false},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"next_page_url\":null,\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer\",\"per_page\":5,\"prev_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/customer?page=14\",\"to\":null,\"total\":16}}",
                             "name": ""
                         }
                     ]
@@ -101,7 +101,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"possimus\",\"address\":\"ullam\"}"
+                            "raw": "{\"name\":\"necessitatibus\",\"address\":\"est\"}"
                         },
                         "description": ""
                     },
@@ -122,7 +122,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "51"
+                                    "value": "58"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -130,7 +130,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"success\":true,\"message\":\"Data customer baru berhasil ditambah\",\"data\":{\"name\":\"possimus\",\"address\":\"ullam\",\"updated_at\":\"2023-11-24T10:54:15.000000Z\",\"created_at\":\"2023-11-24T10:54:15.000000Z\",\"id\":40}}",
+                            "body": "{\"success\":true,\"message\":\"Data customer baru berhasil ditambah\",\"data\":{\"name\":\"necessitatibus\",\"address\":\"est\",\"updated_at\":\"2023-11-28T07:29:05.000000Z\",\"created_at\":\"2023-11-28T07:29:05.000000Z\",\"id\":42}}",
                             "name": ""
                         }
                     ]
@@ -183,7 +183,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "50"
+                                    "value": "57"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -226,7 +226,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"magnam\",\"address\":\"voluptatibus\"}"
+                            "raw": "{\"name\":\"sequi\",\"address\":\"ipsum\"}"
                         },
                         "description": ""
                     },
@@ -247,7 +247,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "49"
+                                    "value": "56"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -255,7 +255,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"success\":true,\"message\":\"Data customer berhasil diubah\",\"data\":{\"id\":1,\"name\":\"magnam\",\"address\":\"voluptatibus\",\"created_at\":\"2023-11-14T08:11:58.000000Z\",\"updated_at\":\"2023-11-24T10:54:15.000000Z\"}}",
+                            "body": "{\"success\":true,\"message\":\"Data customer berhasil diubah\",\"data\":{\"id\":1,\"name\":\"sequi\",\"address\":\"ipsum\",\"created_at\":\"2023-11-14T08:11:58.000000Z\",\"updated_at\":\"2023-11-28T07:29:05.000000Z\"}}",
                             "name": ""
                         }
                     ]
@@ -308,7 +308,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "48"
+                                    "value": "55"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -358,30 +358,21 @@
                     },
                     "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "x-ratelimit-limit",
-                                    "value": "60"
-                                },
-                                {
-                                    "key": "x-ratelimit-remaining",
-                                    "value": "58"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
+                            "header": [],
                             "code": 200,
-                            "body": "{\"success\":true,\"message\":\"Login successful. Welcome!\",\"data\":{\"access_token\":\"49|FdO5G4ck2m5O6UjtxAI003N3xaBCtaWJgrkWkZVCf11a78e3\",\"token_type\":\"Bearer\"}}",
+                            "body": "{\"success\": true,\"message\": \"Login successful. Welcome!\",\"data\": {\"access_token\": \"you_access_token_here_12345\",\"token_type\": \"Bearer\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"success\":false,\"message\":\"Invalid credential\",\"data\":\"\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"success\":false,\"message\":\"Validation error!\",\"data\":{\"email\":[\"The email field is required.\"],\"password\":[\"The password field is required.\"]}}",
                             "name": ""
                         }
                     ]
@@ -408,7 +399,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"zibjwmvof\",\"email\":\"amanda82@example.com\",\"password\":\"v`?esoh\\\\2h=ui]kti3;\"}"
+                            "raw": "{\"name\":\"John Doe\",\"email\":\"John.Doe@example.com\",\"password\":\"helloworld!\"}"
                         },
                         "description": "",
                         "auth": {
@@ -417,30 +408,15 @@
                     },
                     "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "x-ratelimit-limit",
-                                    "value": "60"
-                                },
-                                {
-                                    "key": "x-ratelimit-remaining",
-                                    "value": "53"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 201,
-                            "body": "{\"success\":true,\"message\":\"User created successfully\",\"data\":{\"user\":{\"name\":\"zibjwmvof\",\"email\":\"amanda82@example.com\",\"updated_at\":\"2023-11-24T10:54:15.000000Z\",\"created_at\":\"2023-11-24T10:54:15.000000Z\",\"id\":31},\"auth\":{\"access_token\":\"50|vSAH9JwCnyIM4ugHId86vJGspkAZkGdMX7Fc7RsI57744602\",\"token_type\":\"Bearer\"}}}",
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n      \"success\": true,\n      \"message\": \"User created successfully\",\n      \"data\": {\n          \"user\": {\n              \"name\": \"John Doe\",\n              \"email\": \"John.Doe@example.com\",\n              \"updated_at\": \"2023-11-28T07:18:36.000000Z\",\n              \"created_at\": \"2023-11-28T07:18:36.000000Z\",\n              \"id\": 32\n          },\n          \"auth\": {\n              \"access_token\": \"your_access_token_here_1234\",\n              \"token_type\": \"Bearer\"\n          }\n      }\n  }",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"success\":false,\"message\":\"Validation error!\",\"data\":{\"name\":[\"The name field is required.\"],\"email\":[\"The email field is required.\"],\"password\":[\"The password field is required.\"]}}",
                             "name": ""
                         }
                     ]

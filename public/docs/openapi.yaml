@@ -17,12 +17,12 @@ paths:
           in: query
           name: page
           description: 'the page number. Default to 1'
-          example: 16
+          example: 15
           required: false
           schema:
             type: integer
             description: 'the page number. Default to 1'
-            example: 16
+            example: 15
       responses:
         200:
           description: ''
@@ -34,7 +34,7 @@ paths:
                   success: true
                   message: 'List data customer'
                   data:
-                    current_page: 16
+                    current_page: 15
                     data: []
                     first_page_url: 'http://localhost/api/v1/customer?page=1'
                     from: null
@@ -42,7 +42,7 @@ paths:
                     last_page_url: 'http://localhost/api/v1/customer?page=4'
                     links:
                       -
-                        url: 'http://localhost/api/v1/customer?page=15'
+                        url: 'http://localhost/api/v1/customer?page=14'
                         label: '&laquo; Previous'
                         active: false
                       -
@@ -68,7 +68,7 @@ paths:
                     next_page_url: null
                     path: 'http://localhost/api/v1/customer'
                     per_page: 5
-                    prev_page_url: 'http://localhost/api/v1/customer?page=15'
+                    prev_page_url: 'http://localhost/api/v1/customer?page=14'
                     to: null
                     total: 16
                 properties:
@@ -83,7 +83,7 @@ paths:
                     properties:
                       current_page:
                         type: integer
-                        example: 16
+                        example: 15
                       data:
                         type: array
                         example: []
@@ -103,7 +103,7 @@ paths:
                         type: array
                         example:
                           -
-                            url: 'http://localhost/api/v1/customer?page=15'
+                            url: 'http://localhost/api/v1/customer?page=14'
                             label: '&laquo; Previous'
                             active: false
                           -
@@ -131,7 +131,7 @@ paths:
                           properties:
                             url:
                               type: string
-                              example: 'http://localhost/api/v1/customer?page=15'
+                              example: 'http://localhost/api/v1/customer?page=14'
                             label:
                               type: string
                               example: '&laquo; Previous'
@@ -149,7 +149,7 @@ paths:
                         example: 5
                       prev_page_url:
                         type: string
-                        example: 'http://localhost/api/v1/customer?page=15'
+                        example: 'http://localhost/api/v1/customer?page=14'
                       to:
                         type: string
                         example: null
@@ -174,11 +174,11 @@ paths:
                   success: true
                   message: 'Data customer baru berhasil ditambah'
                   data:
-                    name: possimus
-                    address: ullam
-                    updated_at: '2023-11-24T10:54:15.000000Z'
-                    created_at: '2023-11-24T10:54:15.000000Z'
-                    id: 40
+                    name: necessitatibus
+                    address: est
+                    updated_at: '2023-11-28T07:29:05.000000Z'
+                    created_at: '2023-11-28T07:29:05.000000Z'
+                    id: 42
                 properties:
                   success:
                     type: boolean
@@ -191,19 +191,19 @@ paths:
                     properties:
                       name:
                         type: string
-                        example: possimus
+                        example: necessitatibus
                       address:
                         type: string
-                        example: ullam
+                        example: est
                       updated_at:
                         type: string
-                        example: '2023-11-24T10:54:15.000000Z'
+                        example: '2023-11-28T07:29:05.000000Z'
                       created_at:
                         type: string
-                        example: '2023-11-24T10:54:15.000000Z'
+                        example: '2023-11-28T07:29:05.000000Z'
                       id:
                         type: integer
-                        example: 40
+                        example: 42
       tags:
         - Endpoints
       requestBody:
@@ -216,11 +216,11 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: possimus
+                  example: necessitatibus
                 address:
                   type: string
                   description: ''
-                  example: ullam
+                  example: est
               required:
                 - name
                 - address
@@ -290,10 +290,10 @@ paths:
                   message: 'Data customer berhasil diubah'
                   data:
                     id: 1
-                    name: magnam
-                    address: voluptatibus
+                    name: sequi
+                    address: ipsum
                     created_at: '2023-11-14T08:11:58.000000Z'
-                    updated_at: '2023-11-24T10:54:15.000000Z'
+                    updated_at: '2023-11-28T07:29:05.000000Z'
                 properties:
                   success:
                     type: boolean
@@ -309,16 +309,16 @@ paths:
                         example: 1
                       name:
                         type: string
-                        example: magnam
+                        example: sequi
                       address:
                         type: string
-                        example: voluptatibus
+                        example: ipsum
                       created_at:
                         type: string
                         example: '2023-11-14T08:11:58.000000Z'
                       updated_at:
                         type: string
-                        example: '2023-11-24T10:54:15.000000Z'
+                        example: '2023-11-28T07:29:05.000000Z'
       tags:
         - Endpoints
       requestBody:
@@ -331,11 +331,11 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: magnam
+                  example: sequi
                 address:
                   type: string
                   description: ''
-                  example: voluptatibus
+                  example: ipsum
     delete:
       summary: 'Remove the specified resource from storage.'
       operationId: removeTheSpecifiedResourceFromStorage
@@ -390,7 +390,7 @@ paths:
                   success: true
                   message: 'Login successful. Welcome!'
                   data:
-                    access_token: 49|FdO5G4ck2m5O6UjtxAI003N3xaBCtaWJgrkWkZVCf11a78e3
+                    access_token: you_access_token_here_12345
                     token_type: Bearer
                 properties:
                   success:
@@ -404,10 +404,66 @@ paths:
                     properties:
                       access_token:
                         type: string
-                        example: 49|FdO5G4ck2m5O6UjtxAI003N3xaBCtaWJgrkWkZVCf11a78e3
+                        example: you_access_token_here_12345
                       token_type:
                         type: string
                         example: Bearer
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: false
+                  message: 'Invalid credential'
+                  data: ''
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'Invalid credential'
+                  data:
+                    type: string
+                    example: ''
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: false
+                  message: 'Validation error!'
+                  data:
+                    email:
+                      - 'The email field is required.'
+                    password:
+                      - 'The password field is required.'
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'Validation error!'
+                  data:
+                    type: object
+                    properties:
+                      email:
+                        type: array
+                        example:
+                          - 'The email field is required.'
+                        items:
+                          type: string
+                      password:
+                        type: array
+                        example:
+                          - 'The password field is required.'
+                        items:
+                          type: string
       tags:
         - 'User Authentication'
       requestBody:
@@ -436,7 +492,7 @@ paths:
       description: ''
       parameters: []
       responses:
-        201:
+        200:
           description: ''
           content:
             application/json:
@@ -447,13 +503,13 @@ paths:
                   message: 'User created successfully'
                   data:
                     user:
-                      name: zibjwmvof
-                      email: amanda82@example.com
-                      updated_at: '2023-11-24T10:54:15.000000Z'
-                      created_at: '2023-11-24T10:54:15.000000Z'
-                      id: 31
+                      name: 'John Doe'
+                      email: John.Doe@example.com
+                      updated_at: '2023-11-28T07:18:36.000000Z'
+                      created_at: '2023-11-28T07:18:36.000000Z'
+                      id: 32
                     auth:
-                      access_token: 50|vSAH9JwCnyIM4ugHId86vJGspkAZkGdMX7Fc7RsI57744602
+                      access_token: your_access_token_here_1234
                       token_type: Bearer
                 properties:
                   success:
@@ -470,28 +526,72 @@ paths:
                         properties:
                           name:
                             type: string
-                            example: zibjwmvof
+                            example: 'John Doe'
                           email:
                             type: string
-                            example: amanda82@example.com
+                            example: John.Doe@example.com
                           updated_at:
                             type: string
-                            example: '2023-11-24T10:54:15.000000Z'
+                            example: '2023-11-28T07:18:36.000000Z'
                           created_at:
                             type: string
-                            example: '2023-11-24T10:54:15.000000Z'
+                            example: '2023-11-28T07:18:36.000000Z'
                           id:
                             type: integer
-                            example: 31
+                            example: 32
                       auth:
                         type: object
                         properties:
                           access_token:
                             type: string
-                            example: 50|vSAH9JwCnyIM4ugHId86vJGspkAZkGdMX7Fc7RsI57744602
+                            example: your_access_token_here_1234
                           token_type:
                             type: string
                             example: Bearer
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: false
+                  message: 'Validation error!'
+                  data:
+                    name:
+                      - 'The name field is required.'
+                    email:
+                      - 'The email field is required.'
+                    password:
+                      - 'The password field is required.'
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'Validation error!'
+                  data:
+                    type: object
+                    properties:
+                      name:
+                        type: array
+                        example:
+                          - 'The name field is required.'
+                        items:
+                          type: string
+                      email:
+                        type: array
+                        example:
+                          - 'The email field is required.'
+                        items:
+                          type: string
+                      password:
+                        type: array
+                        example:
+                          - 'The password field is required.'
+                        items:
+                          type: string
       tags:
         - 'User Authentication'
       requestBody:
@@ -503,16 +603,16 @@ paths:
               properties:
                 name:
                   type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: zibjwmvof
+                  description: 'name for registration.'
+                  example: 'John Doe'
                 email:
                   type: string
-                  description: 'Must be a valid email address.'
-                  example: amanda82@example.com
+                  description: 'a valid email used for registration.'
+                  example: John.Doe@example.com
                 password:
                   type: string
-                  description: 'Must be at least 8 characters.'
-                  example: 'v`?esoh\2h=ui]kti3;'
+                  description: 'a strong password for your account. minimum length is 8.'
+                  example: helloworld!
               required:
                 - name
                 - email

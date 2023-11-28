@@ -73,6 +73,10 @@ class UserController extends Controller
      * @unauthenticated
      * @bodyParam email string required your email used to make account. Example: scribe.bot@example.com
      * @bodyParam password string required your password used then making the account. Example: password
+     * 
+     * @response 200 {"success": true,"message": "Login successful. Welcome!","data": {"access_token": "you_access_token_here_12345","token_type": "Bearer"}}
+     * @response 422 {"success":false,"message":"Validation error!","data":{"email":["The email field is required."],"password":["The password field is required."]}}
+     * @response 401 {"success":false,"message":"Invalid credential","data":""}
      */
     public function login(Request $request)
     {
@@ -120,6 +124,30 @@ class UserController extends Controller
      * 
      * @group User Authentication
      * @unauthenticated
+     * 
+     * @bodyParam name string required name for registration. Example: John Doe
+     * @bodyParam email string required a valid email used for registration. Example: John.Doe@example.com
+     * @bodyParam password string required a strong password for your account. minimum length is 8. Example: helloworld!
+     * 
+     * @response 200 {
+     *       "success": true,
+     *       "message": "User created successfully",
+     *       "data": {
+     *           "user": {
+     *               "name": "John Doe",
+     *               "email": "John.Doe@example.com",
+     *               "updated_at": "2023-11-28T07:18:36.000000Z",
+     *               "created_at": "2023-11-28T07:18:36.000000Z",
+     *               "id": 32
+     *           },
+     *           "auth": {
+     *               "access_token": "your_access_token_here_1234",
+     *               "token_type": "Bearer"
+     *           }
+     *       }
+     *   }
+     * @response 422 {"success":false,"message":"Validation error!","data":{"name":["The name field is required."],"email":["The email field is required."],"password":["The password field is required."]}}
+     * 
      */
     public function register(Request $request)
     {
