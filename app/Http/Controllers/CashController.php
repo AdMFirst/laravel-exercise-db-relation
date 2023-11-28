@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CashResource;
+use App\Http\Resources\PaymentResource;
 use App\Models\Cash;
 use App\Models\Payment;
 use Illuminate\Http\Request;
@@ -14,9 +16,7 @@ class CashController extends Controller
      */
     public function index()
     {
-        return response()->json([
-            'data' => Cash::paginate()
-        ]);
+        return CashResource::collection(Cash::paginate());
     }
 
     /**
@@ -59,7 +59,7 @@ class CashController extends Controller
         return response([
             'success' => true,
             'message' => 'Data payment cash baru berhasil ditambah',
-            'data' => $payment // $cash variable should be filled with both amount and cashtendered
+            'data' => CashResource::make($cash) // $cash variable should be filled with both amount and cashtendered
         ]);
     }
 
@@ -68,7 +68,11 @@ class CashController extends Controller
      */
     public function show(Cash $cash)
     {
-        //
+        return response([
+            'success' => true,
+            'message' => 'Data payment cash baru berhasil ditambah',
+            'data' => PaymentResource::make($cash->payable)
+        ]);
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PaymentResource;
 use App\Models\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -17,7 +18,7 @@ class PaymentController extends Controller
     public function index()
     {
         //
-        return JsonResource::collection(Payment::paginate());
+        return PaymentResource::collection(Payment::paginate());
     }
 
     /**
@@ -52,7 +53,7 @@ class PaymentController extends Controller
         return response([
             'success' => true,
             'message' => 'Data payment baru berhasil ditambah',
-            'data' => $payment,
+            'data' => PaymentResource::make($payment),
         ]);
     }
 
@@ -62,7 +63,7 @@ class PaymentController extends Controller
     public function show(Payment $payment)
     {
         //
-        return new JsonResource($payment);
+        return PaymentResource::make($payment);
     }
 
     /**
@@ -104,7 +105,7 @@ class PaymentController extends Controller
         return response([
             'success' => true,
             'message' => 'Data payment baru berhasil ditambah',
-            'data' => $payment,
+            'data' => PaymentResource::make($payment),
         ]);
     }
 
