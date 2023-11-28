@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('cashes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('payment_id')->references('id')->on('payments');
             $table->float('cashTendered');
             $table->timestamps();
         });

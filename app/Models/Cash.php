@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Cash extends Model
 {
@@ -18,7 +19,7 @@ class Cash extends Model
         'cashTendered',
     ];
 
-    public function payment() {
-        return $this->belongsTo(Payment::class);
+    public function payable(): MorphOne {
+        return $this->morphOne(Payment::class, 'payable');
     }
 }

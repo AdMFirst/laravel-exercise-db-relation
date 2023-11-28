@@ -34,8 +34,8 @@ class CashController extends Controller
     {
         $validator = Validator::make($request->all(),
             [
-                'amount' => 'required|decimal:0,2',
-                'cashTendered' => 'required|decimal:0,2',
+                'amount' => 'required|decimal:0,2', // property of payment 
+                'cashTendered' => 'required|decimal:0,2', // property of cash
             ]    
         );
 
@@ -46,21 +46,20 @@ class CashController extends Controller
                 'data' => $validator->errors(),
             ], 422);
         }
+        $cash = Cash::create([
+            'cashTendered' => $request->input('cashTendered')
+        ]);
 
         $payment = Payment::create([
             'amount' => $request->input('amount'),
         ]);
-        $cash = $payment->cash()->create([
-            'cashTendered' => $request->input('cashTendered')
-        ]);
+        
+        $cash->payable()->save($payment);
 
         return response([
             'success' => true,
             'message' => 'Data payment cash baru berhasil ditambah',
-            'data' => [
-                "cash" => $cash,
-                "payment" => $payment,
-            ],
+            'data' => $payment // $cash variable should be filled with both amount and cashtendered
         ]);
     }
 

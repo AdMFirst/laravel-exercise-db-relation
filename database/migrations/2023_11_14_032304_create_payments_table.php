@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->float('amount');
+            $table->string('payable_type')->nullable();
+            $table->foreignId('payable_id')->nullable();
             $table->timestamps();
         });
     }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Check extends Payment
 {
@@ -43,5 +44,9 @@ class Check extends Payment
      */
     public function authorized (): bool {
         return in_array($this->bankID, Check::VALID_BANK_ID);
+    }
+
+    public function payable(): MorphOne {
+        return $this->morphOne(Payment::class, 'payable');
     }
 }

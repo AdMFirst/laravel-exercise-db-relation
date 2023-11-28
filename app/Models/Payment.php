@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Payment extends Model
 {
@@ -18,15 +19,8 @@ class Payment extends Model
         'amount',
     ];
 
-    public function cash() {
-        return $this->hasOne(Cash::class);
+    public function payable(): MorphTo {
+        return $this->morphTo();
     }
 
-    public function credit() {
-        return $this->hasOne(Credit::class);
-    }
-
-    public function Check() {
-        return $this->hasOne(Check::class);
-    }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Support\Carbon;
 
 class Credit extends Payment
@@ -28,5 +29,9 @@ class Credit extends Payment
      */
     public function authorized (): bool {
         return Carbon::now()->diffInDays($this->attributes['expDate']) > 7;
+    }
+
+    public function payable(): MorphOne {
+        return $this->morphOne(Payment::class, 'payable');
     }
 }
