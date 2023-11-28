@@ -1,0 +1,636 @@
+openapi: 3.0.3
+info:
+  title: 'Exercise API Documentation'
+  description: 'This is an API for a REST API in laravel. see the github page form more info'
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/v1/customer:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'the page number. Default to 1'
+          example: 15
+          required: false
+          schema:
+            type: integer
+            description: 'the page number. Default to 1'
+            example: 15
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: 'List data customer'
+                  data:
+                    current_page: 15
+                    data: []
+                    first_page_url: 'http://localhost/api/v1/customer?page=1'
+                    from: null
+                    last_page: 4
+                    last_page_url: 'http://localhost/api/v1/customer?page=4'
+                    links:
+                      -
+                        url: 'http://localhost/api/v1/customer?page=14'
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/customer?page=1'
+                        label: '1'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/customer?page=2'
+                        label: '2'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/customer?page=3'
+                        label: '3'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/customer?page=4'
+                        label: '4'
+                        active: false
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    next_page_url: null
+                    path: 'http://localhost/api/v1/customer'
+                    per_page: 5
+                    prev_page_url: 'http://localhost/api/v1/customer?page=14'
+                    to: null
+                    total: 16
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'List data customer'
+                  data:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 15
+                      data:
+                        type: array
+                        example: []
+                      first_page_url:
+                        type: string
+                        example: 'http://localhost/api/v1/customer?page=1'
+                      from:
+                        type: string
+                        example: null
+                      last_page:
+                        type: integer
+                        example: 4
+                      last_page_url:
+                        type: string
+                        example: 'http://localhost/api/v1/customer?page=4'
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: 'http://localhost/api/v1/customer?page=14'
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/customer?page=1'
+                            label: '1'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/customer?page=2'
+                            label: '2'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/customer?page=3'
+                            label: '3'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/customer?page=4'
+                            label: '4'
+                            active: false
+                          -
+                            url: null
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: 'http://localhost/api/v1/customer?page=14'
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      next_page_url:
+                        type: string
+                        example: null
+                      path:
+                        type: string
+                        example: 'http://localhost/api/v1/customer'
+                      per_page:
+                        type: integer
+                        example: 5
+                      prev_page_url:
+                        type: string
+                        example: 'http://localhost/api/v1/customer?page=14'
+                      to:
+                        type: string
+                        example: null
+                      total:
+                        type: integer
+                        example: 16
+      tags:
+        - Endpoints
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: 'Data customer baru berhasil ditambah'
+                  data:
+                    name: necessitatibus
+                    address: est
+                    updated_at: '2023-11-28T07:29:05.000000Z'
+                    created_at: '2023-11-28T07:29:05.000000Z'
+                    id: 42
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Data customer baru berhasil ditambah'
+                  data:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        example: necessitatibus
+                      address:
+                        type: string
+                        example: est
+                      updated_at:
+                        type: string
+                        example: '2023-11-28T07:29:05.000000Z'
+                      created_at:
+                        type: string
+                        example: '2023-11-28T07:29:05.000000Z'
+                      id:
+                        type: integer
+                        example: 42
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: necessitatibus
+                address:
+                  type: string
+                  description: ''
+                  example: est
+              required:
+                - name
+                - address
+  '/api/v1/customer/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: 'Berikut adalah data customer yang diminta'
+                  data:
+                    id: 1
+                    name: 'Zelda Gaylord'
+                    address: "37473 Mayert Drive\nKobyburgh, KY 36186"
+                    created_at: '2023-11-14T08:11:58.000000Z'
+                    updated_at: '2023-11-14T08:11:58.000000Z'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Berikut adalah data customer yang diminta'
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: 'Zelda Gaylord'
+                      address:
+                        type: string
+                        example: "37473 Mayert Drive\nKobyburgh, KY 36186"
+                      created_at:
+                        type: string
+                        example: '2023-11-14T08:11:58.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2023-11-14T08:11:58.000000Z'
+      tags:
+        - Endpoints
+    put:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: 'Data customer berhasil diubah'
+                  data:
+                    id: 1
+                    name: sequi
+                    address: ipsum
+                    created_at: '2023-11-14T08:11:58.000000Z'
+                    updated_at: '2023-11-28T07:29:05.000000Z'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Data customer berhasil diubah'
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: sequi
+                      address:
+                        type: string
+                        example: ipsum
+                      created_at:
+                        type: string
+                        example: '2023-11-14T08:11:58.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2023-11-28T07:29:05.000000Z'
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: sequi
+                address:
+                  type: string
+                  description: ''
+                  example: ipsum
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: 'Data customer berhasil dihapus'
+                  data: null
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Data customer berhasil dihapus'
+                  data:
+                    type: string
+                    example: null
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'id of customer.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/login:
+    post:
+      summary: 'A Login function to receive your authorization token'
+      operationId: aLoginFunctionToReceiveYourAuthorizationToken
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: 'Login successful. Welcome!'
+                  data:
+                    access_token: you_access_token_here_12345
+                    token_type: Bearer
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Login successful. Welcome!'
+                  data:
+                    type: object
+                    properties:
+                      access_token:
+                        type: string
+                        example: you_access_token_here_12345
+                      token_type:
+                        type: string
+                        example: Bearer
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: false
+                  message: 'Invalid credential'
+                  data: ''
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'Invalid credential'
+                  data:
+                    type: string
+                    example: ''
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: false
+                  message: 'Validation error!'
+                  data:
+                    email:
+                      - 'The email field is required.'
+                    password:
+                      - 'The password field is required.'
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'Validation error!'
+                  data:
+                    type: object
+                    properties:
+                      email:
+                        type: array
+                        example:
+                          - 'The email field is required.'
+                        items:
+                          type: string
+                      password:
+                        type: array
+                        example:
+                          - 'The password field is required.'
+                        items:
+                          type: string
+      tags:
+        - 'User Authentication'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'your email used to make account.'
+                  example: scribe.bot@example.com
+                password:
+                  type: string
+                  description: 'your password used then making the account.'
+                  example: password
+              required:
+                - email
+                - password
+      security: []
+  /api/v1/register:
+    post:
+      summary: 'A Register function to add account to the system'
+      operationId: aRegisterFunctionToAddAccountToTheSystem
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: 'User created successfully'
+                  data:
+                    user:
+                      name: 'John Doe'
+                      email: John.Doe@example.com
+                      updated_at: '2023-11-28T07:18:36.000000Z'
+                      created_at: '2023-11-28T07:18:36.000000Z'
+                      id: 32
+                    auth:
+                      access_token: your_access_token_here_1234
+                      token_type: Bearer
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'User created successfully'
+                  data:
+                    type: object
+                    properties:
+                      user:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                            example: 'John Doe'
+                          email:
+                            type: string
+                            example: John.Doe@example.com
+                          updated_at:
+                            type: string
+                            example: '2023-11-28T07:18:36.000000Z'
+                          created_at:
+                            type: string
+                            example: '2023-11-28T07:18:36.000000Z'
+                          id:
+                            type: integer
+                            example: 32
+                      auth:
+                        type: object
+                        properties:
+                          access_token:
+                            type: string
+                            example: your_access_token_here_1234
+                          token_type:
+                            type: string
+                            example: Bearer
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: false
+                  message: 'Validation error!'
+                  data:
+                    name:
+                      - 'The name field is required.'
+                    email:
+                      - 'The email field is required.'
+                    password:
+                      - 'The password field is required.'
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'Validation error!'
+                  data:
+                    type: object
+                    properties:
+                      name:
+                        type: array
+                        example:
+                          - 'The name field is required.'
+                        items:
+                          type: string
+                      email:
+                        type: array
+                        example:
+                          - 'The email field is required.'
+                        items:
+                          type: string
+                      password:
+                        type: array
+                        example:
+                          - 'The password field is required.'
+                        items:
+                          type: string
+      tags:
+        - 'User Authentication'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'name for registration.'
+                  example: 'John Doe'
+                email:
+                  type: string
+                  description: 'a valid email used for registration.'
+                  example: John.Doe@example.com
+                password:
+                  type: string
+                  description: 'a strong password for your account. minimum length is 8.'
+                  example: helloworld!
+              required:
+                - name
+                - email
+                - password
+      security: []
+tags:
+  -
+    name: Endpoints
+    description: ''
+  -
+    name: 'User Authentication'
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.'
+security:
+  -
+    default: []

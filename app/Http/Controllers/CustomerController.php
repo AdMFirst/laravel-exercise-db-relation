@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\v1\CustomerResource;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -9,7 +10,9 @@ use Illuminate\Support\Facades\Validator;
 class CustomerController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource. 
+     * 
+     * @queryParam page integer the page number. Default to 1
      */
     public function index()
     {
@@ -21,14 +24,6 @@ class CustomerController extends Controller
             'message' => 'List data customer',
             'data' => $customers,
         ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create(Request $request)
-    {
-        // why would this even exist?
     }
 
     /**
@@ -65,33 +60,73 @@ class CustomerController extends Controller
 
     /**
      * Display the specified resource.
+     * 
+     * @urlParam id integer required id of customer. Example: 1
      */
     public function show(Customer $customer)
     {
         //
+        return response([
+            'success' => true,
+            'message' => 'Berikut adalah data customer yang diminta',
+            'data' => $customer,
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Customer $customer)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
+     * 
+     * @urlParam id integer required id of customer. Example: 1
      */
     public function update(Request $request, Customer $customer)
     {
-        //
+        $validator = Validator::make($request->all(),
+            [
+                'name' => 'string',
+                'address' => 'string'
+            ]    
+        );
+
+        if ($validator->fails()) {
+            return response([
+                'success' => false,
+                'message' => 'Validation error!',
+                'data' => $validator->errors(),
+            ], 422);
+        }
+
+        if ($request->name) {
+            $customer->name = $request->name;
+        };
+
+        if ($request->address) {
+            $customer->address = $request->address;
+        };
+
+        $customer->save();
+
+        return response([
+            'success' => true,
+            'message' => 'Data customer berhasil diubah',
+            'data' => $customer,
+        ]);
+        
     }
 
     /**
      * Remove the specified resource from storage.
+     * 
+     * @urlParam id integer required id of customer. Example: 10
      */
     public function destroy(Customer $customer)
     {
-        //
+        Customer::destroy($customer->id);
+
+        return response([
+            'success' => true,
+            'message' => 'Data customer berhasil dihapus',
+            'data' => null,
+        ]);
     }
 }
