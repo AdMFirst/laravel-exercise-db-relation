@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cash;
+use App\Models\Payment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CashController extends Controller
 {
@@ -12,7 +14,9 @@ class CashController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json([
+            'data' => Cash::paginate()
+        ]);
     }
 
     /**
@@ -28,7 +32,36 @@ class CashController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(),
+            [
+                'amount' => 'required|decimal:0,2',
+                'cashTendered' => 'required|decimal:0,2',
+            ]    
+        );
+
+        if ($validator->fails()) {
+            return response([
+                'success' => false,
+                'message' => 'Validation error!',
+                'data' => $validator->errors(),
+            ], 422);
+        }
+
+        $payment = Payment::create([
+            'amount' => $request->input('amount'),
+        ]);
+        $cash = $payment->cash()->create([
+            'cashTendered' => $request->input('cashTendered')
+        ]);
+
+        return response([
+            'success' => true,
+            'message' => 'Data payment cash baru berhasil ditambah',
+            'data' => [
+                "cash" => $cash,
+                "payment" => $payment,
+            ],
+        ]);
     }
 
     /**

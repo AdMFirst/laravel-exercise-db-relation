@@ -17,4 +17,16 @@ class Payment extends Model
     protected $fillable = [
         'amount',
     ];
+
+    public function cash() {
+        return $this->hasOne(Cash::class);
+    }
+
+    public function credit() {
+        return $this->hasOne(Credit::class);
+    }
+
+    public function Check() {
+        return $this->hasOne(Check::class);
+    }
 }

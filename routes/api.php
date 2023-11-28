@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CashController;
+use App\Http\Controllers\CheckController;
+use App\Http\Controllers\CreditController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
@@ -25,7 +28,14 @@ Route::group([
 
     Route::middleware('auth:sanctum')->group(function($router) {
         Route::apiResource('customer', CustomerController::class);
-        Route::apiResource('payment', PaymentController::class);
-
+        Route::group(['prefix'=>'payment'], function () {
+            Route::apiResources([
+                'cash' => CashController::class,
+                'credit' => CreditController::class,
+                'check' => CheckController::class,
+            ]);
+            Route::apiResource('/', PaymentController::class)->parameter('', 'payment');
+        });
+        
     });
 });
