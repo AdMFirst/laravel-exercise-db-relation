@@ -7,6 +7,7 @@ use App\Http\Resources\PaymentResource;
 use App\Models\Cash;
 use App\Models\Payment;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Validator;
 
 class CashController extends Controller
@@ -16,7 +17,7 @@ class CashController extends Controller
      */
     public function index()
     {
-        return CashResource::collection(Cash::paginate());
+        return JsonResource::collection(Cash::with('payable')->paginate());
     }
 
     /**
@@ -59,7 +60,7 @@ class CashController extends Controller
         return response([
             'success' => true,
             'message' => 'Data payment cash baru berhasil ditambah',
-            'data' => CashResource::make($cash) // $cash variable should be filled with both amount and cashtendered
+            'data' => PaymentResource::make($payment) // $cash variable should be filled with both amount and cashtendered
         ]);
     }
 

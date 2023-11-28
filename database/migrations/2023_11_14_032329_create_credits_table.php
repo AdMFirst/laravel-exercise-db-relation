@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('credits', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('payment_id')->references('id')->on('payments');
             $table->string('number');
             $table->string('type');
             $table->date('expDate');
